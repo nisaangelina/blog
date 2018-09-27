@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get  '/post',   to: 'static#sample_blog_page'
   get  '/contact',   to: 'static#contact'
   get  '/blogpost',   to: 'blogposts#blogpost'
-  resources :users do
-    resources :blogposts
-  end
+  resources :users
+  resources :blogposts
+
 end

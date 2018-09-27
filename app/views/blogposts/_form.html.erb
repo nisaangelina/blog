@@ -1,4 +1,9 @@
-          <%= form_for [@user, @blogpost] do |f| %>
+          <%= form_for @blogpost do |f| %>
+            <ul>
+              <% @blogpost.errors.full_messages.each do |error| %>
+                <li><%= error %></li>
+              <% end %>
+            </ul>
             <div class="control-group">
                 <%= f.label :'Title' %>
                 <%= f.text_field :title, class: "form-control" %>
@@ -15,6 +20,20 @@
                 <p>
                   <%= f.label :'Content' %>
                   <%= f.text_field :content, class: "form-control" %>
+                </p>
+                <p>
+            </div>
+            <div class="control-group">
+                <p>
+                  <%= f.label :'User ID' %>
+                  <%= f.text_field :user_id, class: "form-control" %>
+                </p>
+                <p>
+            </div>
+            <div class="control-group">
+                <p>
+                  <%= f.label :'Image URL' %>
+                  <%= f.text_field :image_url, class: "form-control" %>
                 </p>
                 <p>
             </div>

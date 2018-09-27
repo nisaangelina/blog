@@ -1,0 +1,21 @@
+<%= link_to 'New', new_user_path%>
+<table>
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Email</td>
+      <td colspan="2">Actions</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user|%>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td><%= link_to 'Show', user ,class: 'btn btn-primary float-right'%></td>
+      <td><%= button_to "Delete", user, class: 'btn btn-delete float-right', method: :delete, data: {confirm: "Really delete the post?"}
+%></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>

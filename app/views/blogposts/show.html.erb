@@ -20,23 +20,20 @@
                 Problems look mighty small from 150 miles up
               </h3>
             </a> -->
-              <% @blogpost.each do |blogpost| %>
-
-                  <h2 class="section-heading"><%= blogpost.title%></h2>
-                  <p style="font-style: italic; font-size: 15px"><%= blogpost.summary%></p>
-                  <p><%= blogpost.content%></p>
-                   <div class="clearfix">
-                    <%=link_to 'Edit this post', edit_blogpost_path(blogpost), class: 'btn btn-primary float-left' %>
-
-                    <%= button_to "Delete", blogpost, class: 'btn btn-delete float-right', method: :delete, data: {confirm: "Really delete the post?"}
-%>
-
-              </div>
-              <hr>
-               <% end %>
+              <table>
+                <tr>
+                  <td>Title</td>
+                  <td>Content</td>
+                  <td>Summary</td>
+                </tr>
+                <tr>
+                  <td><%= @blogpost.title %></td>
+                  <td><%= @blogpost.content %></td>
+                  <td><%= @blogpost.summary %></td>
+                </tr>
+              </table>
           <!-- Pager -->
            <div class="clearfix">
-            <%= link_to 'Add Post', new_blogpost_path(@blogpost), class: 'btn btn-primary float-right' %>
 
          </div>
         </div>
