@@ -1,0 +1,28 @@
+          <%= form_for [@user, @blogpost] do |f| %>
+            <div class="control-group">
+                <%= f.label :'Title' %>
+                <%= f.text_field :title, class: "form-control" %>
+            </div>
+            <div class="control-group">
+                <p>
+                  <%= f.label :'Summary' %>
+                  <%= f.text_field :summary, class: "form-control" %>
+                </p>
+                <p>
+            </div>
+
+            <div class="control-group">
+                <p>
+                  <%= f.label :'Content' %>
+                  <%= f.text_field :content, class: "form-control" %>
+                </p>
+                <p>
+            </div>
+            <br>
+            <div class="form-group">
+               <%= f.submit 'Submit', class: "btn btn-primary" %>
+            </div>
+            <% end %>
+        </div>
+      </div>
+    </div>

@@ -20,16 +20,13 @@
                 Problems look mighty small from 150 miles up
               </h3>
             </a> -->
-            <ul id="blogposts">
+
               <% @blogposts.each do |blogpost| %>
-                <li>
-                  <h2 class="post-title"><%= link_to blogpost.title, blogpost_path(article) %></h2>
-                </li>
-              <% end %>
-          </ul>
+
+                  <h2 class="post-title"><%= link_to blogpost.title,user_blogposts_path(blogpost.user) %></h2>
             <p class="post-meta">Posted by
-              <a href="#">Start Bootstrap</a>
-              on September 24, 2018</p>
+              <%=link_to blogpost.user.name, user_blogposts_path(blogpost.user) %></p>
+              <% end %>
           </div>
           <hr>
           <div class="post-preview">
@@ -71,11 +68,9 @@
               on July 8, 2018</p>
           </div>
           <hr>
-
-
           <!-- Pager -->
           <div class="clearfix">
-            <a class="btn btn-primary float-left" href="#">&larr; Add Posts</a>
+            <!-- <a class="btn btn-primary float-left" href="#">&larr; Add Posts</a> -->
             <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
           </div>
         </div>
