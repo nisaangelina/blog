@@ -1,10 +1,24 @@
-<table class="table table-bordered">
-  <tr>
-    <td>Name</td>
-    <td><%= @user.name %></td>
-  </tr>
-  <tr>
-    <td>Email</td>
-    <td><%= @user.email %></td>
-  </tr>
-</table>
+<!DOCTYPE html>
+<html lang="en">
+
+<%= render 'layouts/head' %>
+  <body>
+<%= render 'layouts/navigation' %>
+ <%= render 'layouts/header' %>
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-preview">
+            <h2 class="post-title"><%= @user.name %></h2>
+            <h3 class="post-subtitle"><%= @user.email %></h3>
+          <!-- Pager -->
+           <div class="clearfix">
+         </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+<%= render 'layouts/footer' %>
+  </body>
+</html>

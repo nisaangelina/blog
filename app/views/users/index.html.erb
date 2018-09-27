@@ -1,21 +1,33 @@
-<%= link_to 'New', new_user_path%>
-<table>
-  <thead>
-    <tr>
-      <td>Name</td>
-      <td>Email</td>
-      <td colspan="2">Actions</td>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user|%>
-    <tr>
-      <td><%= user.name %></td>
-      <td><%= user.email %></td>
-      <td><%= link_to 'Show', user ,class: 'btn btn-primary float-right'%></td>
-      <td><%= button_to "Delete", user, class: 'btn btn-delete float-right', method: :delete, data: {confirm: "Really delete the post?"}
-%></td>
-    </tr>
-    <%end%>
-  </tbody>
-</table>
+<!DOCTYPE html>
+<html lang="en">
+<%= render 'layouts/head' %>
+  <body>
+<%= render 'layouts/navigation' %>
+ <%= render 'layouts/header' %>
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-preview">
+             <% @users.each do |user|%>
+                  <h2 class="section-heading"><%= user.name %></h2>
+                  <p><%= user.email %></p>
+                   <div class="clearfix">
+                   <%= link_to 'Show', user ,class: 'btn btn-primary float-left'%>
+                    <%=link_to 'Edit User', user, class: 'btn btn-primary float-left' %>
+                   <%= button_to "Delete", user, class: 'btn btn-delete float-right', method: :delete, data: {confirm: "Really delete the user?"}
+%>
+              </div>
+              <hr>
+               <% end %>
+          <!-- Pager -->
+           <div class="clearfix">
+            <%= link_to 'New User', new_user_path, class: 'btn btn-primary float-right' %>
+         </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+<%= render 'layouts/footer' %>
+  </body>
+</html>

@@ -5,8 +5,6 @@
   <body>
 <%= render 'layouts/navigation' %>
  <%= render 'layouts/header' %>
-
-
     <!-- Main Content -->
     <div class="container">
       <div class="row">
@@ -20,12 +18,10 @@
                 Problems look mighty small from 150 miles up
               </h3>
             </a> -->
-
               <% @blogposts.each do |blogpost| %>
-
-                  <h2 class="post-title"><%= link_to blogpost.title,user_blogposts_path(blogpost.user) %></h2>
-            <p class="post-meta">Posted by
-              <%=link_to blogpost.user.name, user_blogposts_path(blogpost.user) %></p>
+                <h2 class="post-title"><%= link_to blogpost.title,user_blogposts_path(blogpost.user) %></h2>
+                <p class="post-meta">Posted by
+                  <%=link_to blogpost.user.name, user_blogposts_path(blogpost.user) %></p>
               <% end %>
           </div>
           <hr>
@@ -76,10 +72,8 @@
         </div>
       </div>
     </div>
-
     <hr>
 <%= render 'layouts/footer' %>
-
   </body>
 
 </html>
