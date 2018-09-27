@@ -5,41 +5,20 @@
   <body>
 <%= render 'layouts/navigation' %>
  <%= render 'layouts/header' %>
-
-
     <!-- Main Content -->
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-preview">
-           <!--  <a href="post.html">
-              <h2 class="post-title">
-                Man must explore, and this is exploration at its greatest
-              </h2>
-              <h3 class="post-subtitle">
-                Problems look mighty small from 150 miles up
-              </h3>
-            </a> -->
-              <table>
-                <tr>
-                  <td>Title</td>
-                  <td>Content</td>
-                  <td>Summary</td>
-                </tr>
-                <tr>
-                  <td><%= @blogpost.title %></td>
-                  <td><%= @blogpost.content %></td>
-                  <td><%= @blogpost.summary %></td>
-                </tr>
-              </table>
+            <h2 class="post-title"><%= @blogpost.title %></h2>
+            <p style="font-style:'italic'; font-size='15px'"><%= @blogpost.content %></p>
+            <h3 class="post-subtitle"><%= @blogpost.summary %></h3>
           <!-- Pager -->
            <div class="clearfix">
-
          </div>
         </div>
       </div>
     </div>
-
     <hr>
 <%= render 'layouts/footer' %>
 

@@ -31,8 +31,6 @@ class BlogpostsController < ApplicationController
   end
 
   def update
-    require 'pry'
-    binding.pry
   @blogpost = ::Blogpost.find(params[:id])
    if @blogpost.update(blog_params)
       flash[:success] = "'#{@blogpost.title}' Updated!"
