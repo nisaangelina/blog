@@ -9,9 +9,10 @@
               <p><%= blogpost.content%></p>
                <div class="clearfix">
                 <%=link_to 'Show', blogpost_path(blogpost.id), class: 'btn btn-primary float-left' %>
+                 <% if is_admin? || correct_user(blogpost.user) %>
                 <%=link_to 'Edit this post', edit_blogpost_path(blogpost), class: 'btn btn-primary float-left' %>
-                <%= button_to "Delete", blogpost, class: 'btn btn-delete float-right', method: :delete, data: {confirm: "Really delete the post?"}
-%>
+                <%= button_to "Delete", blogpost, class: 'btn btn-delete float-right', method: :delete, data: {confirm: "Really delete the post?"}%>
+                <% end %>
               </div>
               <hr>
               <% end %>

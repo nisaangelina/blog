@@ -1,35 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<%= render 'layouts/head' %>
-  <body>
-<%= render 'layouts/navigation' %>
-<!-- Page Header -->
-    <header class="masthead" style="background-image: url('<%= image_url('home-bg.jpg') %>')">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
-            <div class="site-heading">
-              <h1>Clean Blog</h1>
-              <span class="subheading">A Blog Theme by Start Bootstrap</span>
-            </div>
+<!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <%= form_for(:session, url: login_path) do |f| %>
+          <div class="control-group">
+            <%= f.label :'Email' %>
+            <%= f.text_field :email, class: "form-control" %>
           </div>
-        </div>
+          <div class="control-group">
+            <%= f.label :'Password' %>
+            <%= f.password_field :password, class: "form-control" %>
+          </div>
+          <br>
+          <div class="form-group">
+            <%= f.submit 'Log In', class: "btn btn-primary" %>
+          </div>
+        <% end %>
+        <p>New user? <%= link_to "Sign up now!", signup_path %></p>
       </div>
-    </header>
-    <div class="container">
-      <% flash.each do |message_type, message| %>
-        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-      <% end %>
     </div>
-    <!-- Main Content -->
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <p>Add new users!</p>
-         <%= render 'users/form' %>
-    <hr>
-<%= render 'layouts/footer' %>
-  </body>
-</html>
+  <hr>

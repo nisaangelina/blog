@@ -8,15 +8,20 @@
                   <p><%= user.email %></p>
                    <div class="clearfix">
                    <%= link_to 'Show', user ,class: 'btn btn-primary float-left'%>
-                    <%=link_to 'Edit User', edit_user_path(user), class: 'btn btn-primary float-left' %>
-                   <%= button_to "Delete", user, class: 'btn btn-delete float-right', method: :delete, data: {confirm: "Really delete the user?"}
-%>
+                   <% if is_admin? || correct_user(user) %>
+                   <%=link_to 'Edit User', edit_user_path(user), class: 'btn btn-primary float-left' %>
+                  <%end %>
+                   <% if is_admin? %>
+                   <%= button_to "Delete", user, class: 'btn btn-delete float-right', method: :delete, data: {confirm: "Really delete the user?"} %>
+                   <%end %>
               </div>
               <hr>
                <% end %>
           <!-- Pager -->
            <div class="clearfix">
-            <%= link_to 'New User', new_user_path, class: 'btn btn-primary float-right' %>
+             <% if is_admin? %>
+              <%= link_to 'New User', new_user_path, class: 'btn btn-primary float-right' %>
+             <%end %>
          </div>
         </div>
       </div>

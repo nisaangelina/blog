@@ -1,10 +1,12 @@
 class BlogpostsController < ApplicationController
+   before_action :check_user,  only: [:edit, :update, :destroy]
+   # before_action :admin_user,     only: [:edit, :update, :destroy]
   def blogpost
     @blogposts = Blogpost.all
   end
 
   def index
-    @blogpost = ::Blogpost.all
+    @blogpost = ::Blogpost.where("user_id = :user", user: current_user.id)
   end
 
   def show
@@ -25,7 +27,6 @@ class BlogpostsController < ApplicationController
     render 'new'
    end
   end
-
   def edit
     @blogpost = ::Blogpost.find(params[:id])
   end
@@ -51,5 +52,15 @@ class BlogpostsController < ApplicationController
   def blog_params
     params.require(:blogpost).permit(:title, :content, :summary, :user_id, :image_url)
   end
+
+  def check_user
+    user = User.find(params[:id])
+    if correct_user user || is_admin
+      return true
+    else
+      return false
+    end
+  end
+
 
 end
