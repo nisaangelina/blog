@@ -6,6 +6,7 @@
           <h2 class="post-title"><%= @blogpost.title %></h2>
           <h3 class="post-subtitle"><%= @blogpost.summary %></h3>
           <p style="font-style:'italic'; font-size='15px'"><%= @blogpost.content %></p>
+          <%= image_tag (@blogpost.image_url) %>
         </div>
           <div class="clearfix">
              <% if is_admin? || correct_user(@blogpost.user) %>

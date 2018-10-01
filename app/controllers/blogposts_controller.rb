@@ -19,6 +19,7 @@ class BlogpostsController < ApplicationController
 
   def create
     @blogpost = ::Blogpost.new(blog_params)
+    @blogpost.user_id = current_user.id
    if @blogpost.valid?
      @blogpost.save
      flash[:success]= "Blogpost '#{@blogpost.title}' Created!"

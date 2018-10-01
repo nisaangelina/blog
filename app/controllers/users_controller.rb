@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = ::User.new
+    @user = ::User.new(is_admin: false)
   end
 
   def create
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :is_admin)
   end
 
   def check_user

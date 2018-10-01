@@ -7,6 +7,7 @@
               <h2 class="section-heading"><%= blogpost.title%></h2>
               <p style="font-style: italic; font-size: 15px"><%=blogpost.summary%></p>
               <p><%= blogpost.content%></p>
+               <%= image_tag (blogpost.image_url) %>
                <div class="clearfix">
                 <%=link_to 'Show', blogpost_path(blogpost.id), class: 'btn btn-primary float-left' %>
                  <% if is_admin? || correct_user(blogpost.user) %>
