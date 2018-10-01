@@ -18,13 +18,20 @@
                 Problems look mighty small from 150 miles up
               </h3>
             </a> -->
-              <% @blogposts.each do |blogpost| %>
-                <h2 class="post-title"><%= link_to blogpost.title,user_blogposts_path(blogpost.user) %></h2>
-                <p class="post-meta">Posted by
-                  <%=link_to blogpost.user.name, user_blogposts_path(blogpost.user) %></p>
-              <% end %>
           </div>
           <hr>
+          <% @blogposts.each do |blogpost| %>
+            <div class="post-preview">
+              <a href="post.html">
+                <h2 class="post-title">
+                  <%= blogpost.title %>
+                </h2>
+              </a>
+              <p class="post-meta">Posted by
+                <a href="#"><%= blogpost.user.name %></a>
+                on September 18, 2018</p>
+            </div>
+          <% end %>
           <div class="post-preview">
             <a href="post.html">
               <h2 class="post-title">
