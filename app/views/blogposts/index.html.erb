@@ -1,33 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<%= render 'layouts/head' %>
-  <body>
-<%= render 'layouts/navigation' %>
- <%= render 'layouts/header' %>
-    <!-- Main Content -->
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="post-preview">
-           <!--  <a href="post.html">
-              <h2 class="post-title">
-                Man must explore, and this is exploration at its greatest
-              </h2>
-              <h3 class="post-subtitle">
-                Problems look mighty small from 150 miles up
-              </h3>
-            </a> -->
-              <% @blogpost.each do |blogpost| %>
-                  <h2 class="section-heading"><%= blogpost.title%></h2>
-                  <p style="font-style: italic; font-size: 15px"><%= blogpost.summary%></p>
-                  <p><%= blogpost.content%></p>
-                   <div class="clearfix">
-                    <%=link_to 'Edit this post', edit_blogpost_path(blogpost), class: 'btn btn-primary float-left' %>
-                    <%= button_to "Delete", blogpost, class: 'btn btn-delete float-right', method: :delete, data: {confirm: "Really delete the post?"}
+<!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-preview">
+          <% @blogpost.each do |blogpost| %>
+              <h2 class="section-heading"><%= blogpost.title%></h2>
+              <p style="font-style: italic; font-size: 15px"><%=blogpost.summary%></p>
+              <p><%= blogpost.content%></p>
+               <div class="clearfix">
+                <%=link_to 'Show', blogpost_path(blogpost.id), class: 'btn btn-primary float-left' %>
+                <%=link_to 'Edit this post', edit_blogpost_path(blogpost), class: 'btn btn-primary float-left' %>
+                <%= button_to "Delete", blogpost, class: 'btn btn-delete float-right', method: :delete, data: {confirm: "Really delete the post?"}
 %>
               </div>
               <hr>
-               <% end %>
+              <% end %>
           <!-- Pager -->
            <div class="clearfix">
             <%= link_to 'Add Post', new_blogpost_path, class: 'btn btn-primary float-right' %>
@@ -36,6 +23,3 @@
       </div>
     </div>
     <hr>
-<%= render 'layouts/footer' %>
-  </body>
-</html>

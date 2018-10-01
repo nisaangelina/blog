@@ -1,27 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<%= render 'layouts/head' %>
-  <body>
-<%= render 'layouts/navigation' %>
- <%= render 'layouts/header' %>
-    <!-- Main Content -->
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="post-preview">
-            <h2 class="post-title"><%= @blogpost.title %></h2>
-            <p style="font-style:'italic'; font-size='15px'"><%= @blogpost.content %></p>
-            <h3 class="post-subtitle"><%= @blogpost.summary %></h3>
-          <!-- Pager -->
-           <div class="clearfix">
-         </div>
+<!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-preview">
+          <h2 class="post-title"><%= @blogpost.title %></h2>
+          <p style="font-style:'italic'; font-size='15px'"><%= @blogpost.content %></p>
+          <h3 class="post-subtitle"><%= @blogpost.summary %></h3>
         </div>
       </div>
     </div>
     <hr>
-<%= render 'layouts/footer' %>
-
-  </body>
-
-</html>

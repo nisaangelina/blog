@@ -19,7 +19,7 @@ class BlogpostsController < ApplicationController
     @blogpost = ::Blogpost.new(blog_params)
    if @blogpost.valid?
      @blogpost.save
-     flash.notice = "Blogpost '#{@blogpost.title}' Created!"
+     flash[:success]= "Blogpost '#{@blogpost.title}' Created!"
      redirect_to blogposts_path
    else
     render 'new'
