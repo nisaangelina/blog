@@ -4,7 +4,7 @@
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="post-preview">
           <h2 class="post-title"><%= @blogpost.title %></h2>
-          <h3 class="post-subtitle"><%= @blogpost.summary %></h3>
+          <p style="font-style: italic; font-size: '15px'"><%=@blogpost.summary%></p>
           <p style="font-style:'italic'; font-size='15px'"><%= @blogpost.content %></p>
           <%= image_tag (@blogpost.image_url) %>
         </div>

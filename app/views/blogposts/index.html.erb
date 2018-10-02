@@ -5,23 +5,25 @@
         <div class="post-preview">
           <% @blogpost.each do |blogpost| %>
               <h2 class="section-heading"><%= blogpost.title%></h2>
-              <p style="font-style: italic; font-size: 15px"><%=blogpost.summary%></p>
+              <p style="font-style: italic; font-size: '15px'"><%=blogpost.summary%></p>
               <p><%= blogpost.content%></p>
                <%= image_tag (blogpost.image_url) %>
                <div class="clearfix">
                 <%=link_to 'Show', blogpost_path(blogpost.id), class: 'btn btn-primary float-left' %>
+                <div style="margin-left: 6em">
                  <% if is_admin? || correct_user(blogpost.user) %>
-                <%=link_to 'Edit this post', edit_blogpost_path(blogpost), class: 'btn btn-primary float-left' %>
-                <%= button_to "Delete", blogpost, class: 'btn btn-delete float-right', method: :delete, data: {confirm: "Really delete the post?"}%>
-                <% end %>
-              </div>
+                 <%=link_to 'Edit this post', edit_blogpost_path(blogpost), class: 'btn btn-primary float-left' %>
+                </div>
+                  <%= button_to "Delete", blogpost, class: 'btn btn-delete float-right', method: :delete, data: {confirm: "Really delete the post?"}%>
+                  <% end %>
+                </div>
               <hr>
-              <% end %>
-          <!-- Pager -->
+            <% end %>
+           <!-- Pager -->
            <div class="clearfix">
             <%= link_to 'Add Post', new_blogpost_path, class: 'btn btn-primary float-right' %>
          </div>
         </div>
       </div>
     </div>
-    <hr>
+
